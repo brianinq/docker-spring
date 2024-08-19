@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-app-deployment
+  labels:
+    app: demo-spring-app
+    name: spring-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-spring-app
+      name: spring-app
+  template:
+    metadata:
+      name: spring-app
+      labels: 
+        app: demo-spring-app
+        name: spring-app
+    spec:
+      containers:
+        - name: spring-app
+          image: docker.local/springapp
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Never

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: spring-app
+  labels:
+    app: demo-spring-app
+    name: spring-app
+spec:
+  containers:
+    - name: spring-app
+      image: docker.local/springapp:latest
+      ports:
+        - containerPort: 8080
+      imagePullPolicy: Never
